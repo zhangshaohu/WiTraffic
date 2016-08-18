@@ -1,0 +1,28 @@
+make -C linux-80211n-csitool-supplementary/netlink
+sudo modprobe -r iwlwifi mac80211
+sudo modprobe iwlwifi connector_log=0x1
+sudo ifconfig wlan0 up
+sudo ifconfig eth0 up
+sudo iwconfig wlan0 essid TP-LINK_DD9C
+sudo ls /sys/kernel/debug/ieee80211/phy0/netdev:wlan0/stations/
+[sudo] password for wens: 
+bc:46:99:d6:dd:9c
+
+sudo cat /sys/kernel/debug/ieee80211/phy0/netdev:wlan0/stations/bc:46:99:d6:dd:9c/rate_scale_table
+sta_id 0
+
+echo 0x1c90e | sudo tee /sys/kernel/debug/ieee80211/phy0/netdev:wlan0/stations/bc:46:99:d6:dd:9c/rate_scale_table
+sudo iwconfig wlan0 essid TP-LINK_DD9C
+sudo dhclient wlan0
+sudo linux-80211n-csitool-supplementary/netlink/log_to_file csi.dat
+
+//open another teminal 
+
+pgrep log_to_file
+sudo renice -19 -p pid(pid of log_to_file)
+
+ping -i 0.05 192.168.1.1
+
+
+iw dev wlan0 station dump
+iw dev wlan0 link
