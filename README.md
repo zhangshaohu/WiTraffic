@@ -20,5 +20,6 @@ UBUNTU_KERNEL_TAG=Ubuntu-3.13.0-32.57
 ## ieee 80211 phy1 hardware restart
 solution:
 sudo rfkill unblock wifi
+ref: https://blog.csdn.net/caichao08/article/details/53894510
 
 
