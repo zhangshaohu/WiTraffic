@@ -1,5 +1,8 @@
 # WiTraffic
-v0 
+This is the csi tool notes  when I worked on my paper:
+WiTraffic: Low-cost and Non-Intrusive Traffic Monitoring System Using WiFi
+Shaohu Zhang, Myounggyu Won, Sang H. Son
+Proceedings of the IEEE 26th International Conference on Computer Communications and Networks ( ICCCN'17)
 
 This is the research project based on the CSI tools
 
